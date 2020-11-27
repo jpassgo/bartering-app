@@ -3,3 +3,6 @@
 .idea/modules.xml
 .idea/vcs.xml
 .idea/inspectionProfiles/profiles_settings.xml
+BarteringApp/BarteringApp/__pycache__/__init__.cpython-38.pyc
+BarteringApp/BarteringApp/__pycache__/settings.cpython-38.pyc
+BarteringApp/BarteringApp/__pycache__/urls.cpython-38.pyc
