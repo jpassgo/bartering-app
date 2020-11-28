@@ -5,6 +5,7 @@ from . import mongodb_interface as mongodb
 from rest_framework.parsers import JSONParser
 import json
 
+
 @csrf_exempt
 def create_posting(request):
     posting = JSONParser().parse(request)
@@ -17,10 +18,12 @@ def retrieve_posting(request):
     id = request.GET.get('id')
     return HttpResponse(json.dumps(mongodb.retrieve(id)), 200)
 
+
 @csrf_exempt
 def retrieve_postings_for_user(request):
     id = request.GET.get('id')
-    return HttpResponse(json.dumps(mongodb.retrieve_postings_for_user(id)), 200)
+    return HttpResponse(json.dumps(
+        mongodb.retrieve_postings_for_user(id)), 200)
 
 
 @csrf_exempt
@@ -31,4 +34,3 @@ def update_posting(request):
 @csrf_exempt
 def delete_posting(request):
     return HttpResponse(status=200)
-
