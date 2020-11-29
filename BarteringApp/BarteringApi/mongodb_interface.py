@@ -1,4 +1,3 @@
-from rest_framework.parsers import JSONParser
 from django.conf import settings
 from pymongo import MongoClient
 

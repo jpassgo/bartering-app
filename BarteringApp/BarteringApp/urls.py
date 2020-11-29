@@ -19,7 +19,7 @@ from ..BarteringApi import views
 
 urlpatterns = [
     path('posts/', views.create_posting),
-    path('posts/<str:id>', views.def retrieve_posting),
-    path('users/posts/<str:id>', views.retrieve_postings_for_user),
+    path('posts/<str:id>', views.retrieve),
+    path('/users/posts/<str:id>', views.retrieve_postings_for_user),
     path('admin/', admin.site.urls),
 ]
