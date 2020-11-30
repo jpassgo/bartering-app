@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'BarteringApp.apps.BarteringapiConfig',
+    'BarteringApi.apps.BarteringapiConfig',
     'rest_framework'
 ]
 
