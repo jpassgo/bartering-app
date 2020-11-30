@@ -18,8 +18,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('posts/', views.create_posting),
     path('posts/<str:id>', views.retrieve_posting),
-    path('/users/posts/<str:id>', views.retrieve_postings_for_user),
+    path('users/posts/<str:id>', views.dispatch_request),
     path('admin/', admin.site.urls),
 ]

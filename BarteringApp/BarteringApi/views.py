@@ -7,9 +7,17 @@ import json
 
 
 @csrf_exempt
+def dispatch_request(request):
+    if request.method == 'GET':
+        return retrieve_postings_for_user(request)
+    elif request.method == 'POST':
+        return create_posting(request)
+
+@csrf_exempt
 def create_posting(request):
+    user_id = request.GET.get('user_id')
     posting = JSONParser().parse(request)
-    mongodb.create(posting)
+    mongodb.insert_posting(user_id, posting)
     return HttpResponse(201)
 
 
@@ -33,4 +41,4 @@ def update_posting(request):
 
 @csrf_exempt
 def delete_posting(request):
-    return HttpResponse(status=200)
+    return HttpResponse(200)
