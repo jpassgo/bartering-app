@@ -11,10 +11,11 @@ def get_postings_table(client):
     return db.postings
 
 
-def create(posting):
+def insert_posting(user_id, posting):
     client = create_mongo_connection()
     postings_table = get_postings_table(client)
-    return postings_table.insert_one(posting).inserted_id
+    posting['user_id'] = user_id
+    return postings_table.insert_one(posting)
 
 
 def retrieve(id):
@@ -28,12 +29,11 @@ def retrieve(id):
 def retrieve_postings_for_user(user_id):
     client = create_mongo_connection()
     postings_table = get_postings_table(client)
-    posting = postings_table.find_one({'user_id': user_id})
-    posting['user_id'] = str(posting.get('user_id'))
-    return posting
+    postings = postings_table.find({'user_id': user_id})
+    return postings
 
 
-def update(id, updated_posting_attributes):
+def update_posting(id, updated_posting_attributes):
     client = create_mongo_connection()
     postings_table = get_postings_table(client)
 
@@ -43,7 +43,9 @@ def update(id, updated_posting_attributes):
     postings_table.update_one(query, new_values)
 
 
+# Need to loop over the postings for a
 def delete(id):
     client = create_mongo_connection()
     postings_table = get_postings_table(client)
     postings_table.delete_one({'id': id})
+
