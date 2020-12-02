@@ -6,3 +6,12 @@
 BarteringApp/BarteringApp/__pycache__/__init__.cpython-38.pyc
 BarteringApp/BarteringApp/__pycache__/settings.cpython-38.pyc
 BarteringApp/BarteringApp/__pycache__/urls.cpython-38.pyc
+BarteringApp/BarteringApi/__pycache__/__init__.cpython-38.pyc
+BarteringApp/BarteringApi/__pycache__/admin.cpython-38.pyc
+BarteringApp/BarteringApi/__pycache__/apps.cpython-38.pyc
+BarteringApp/BarteringApi/__pycache__/models.cpython-38.pyc
+BarteringApp/BarteringApi/__pycache__/mongodb_interface.cpython-38.pyc
+BarteringApp/BarteringApi/__pycache__/urls.cpython-38.pyc
+BarteringApp/BarteringApi/__pycache__/views.cpython-38.pyc
+BarteringApp/BarteringApi/migrations/__pycache__/__init__.cpython-38.pyc
+BarteringApp/db.sqlite3
