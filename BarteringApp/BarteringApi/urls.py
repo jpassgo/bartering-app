@@ -19,6 +19,6 @@ from . import views
 
 urlpatterns = [
     path('posts/<str:id>', views.retrieve_posting),
-    path('users/posts/<str:id>', views.dispatch_request),
+    path('posts/users/<str:user_id>', views.dispatch_request),
     path('admin/', admin.site.urls),
 ]
