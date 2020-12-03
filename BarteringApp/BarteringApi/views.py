@@ -7,15 +7,14 @@ import json
 
 
 @csrf_exempt
-def dispatch_request(request):
+def dispatch_request(request, user_id):
     if request.method == 'GET':
-        return retrieve_postings_for_user(request)
+        return retrieve_postings_for_user(request, user_id)
     elif request.method == 'POST':
-        return create_posting(request)
+        return create_posting(request, user_id)
 
 @csrf_exempt
-def create_posting(request):
-    user_id = request.GET.get('user_id')
+def create_posting(request, user_id):
     posting = JSONParser().parse(request)
     mongodb.insert_posting(user_id, posting)
     return HttpResponse(201)
@@ -28,10 +27,10 @@ def retrieve_posting(request):
 
 
 @csrf_exempt
-def retrieve_postings_for_user(request):
-    id = request.GET.get('id')
+def retrieve_postings_for_user(request, user_id):
+    print('here')
     return HttpResponse(json.dumps(
-        mongodb.retrieve_postings_for_user(id)), 200)
+        mongodb.retrieve_postings_for_user(user_id)), 200)
 
 
 @csrf_exempt
