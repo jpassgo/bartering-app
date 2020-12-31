@@ -13,6 +13,7 @@ def dispatch_request(request, user_id):
     elif request.method == 'POST':
         return create_posting(request, user_id)
 
+
 @csrf_exempt
 def create_posting(request, user_id):
     posting = JSONParser().parse(request)

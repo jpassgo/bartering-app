@@ -36,9 +36,11 @@ def retrieve_postings_for_user(user_id):
     [convert_id_to_string(posting) for posting in postings]
     return postings
 
+
 def convert_id_to_string(posting):
     posting['_id'] = str(posting.get('_id'))
     return posting
+
 
 def update_posting(id, updated_posting_attributes):
     client = create_mongo_connection()
@@ -55,4 +57,3 @@ def delete(id):
     client = create_mongo_connection()
     postings_table = get_postings_table(client)
     postings_table.delete_one({'id': id})
-
